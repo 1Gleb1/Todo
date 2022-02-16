@@ -1,16 +1,54 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+@layer components {
+    body {
+        @apply overflow-x-hidden bg-slate-700
+    }
+    .card {
+        @apply bg-slate-100 text-slate-800 p-8 font-medium text-lg rounded-2xl w-80 flex flex-col gap-3
+    }
+    .card .card-top {
+        @apply flex flex-col gap-3
+    }
+    .card h3 {
+        @apply text-rose-500 font-bold text-3xl text-center
+    }
+    .card h5 {
+        @apply text-gray-500 text-center text-base
+    }
+    .card .card-bottom {
+        @apply flex justify-between pt-3 gap-6
+    }
+    .card-bottom button {
+        @apply flex-grow flex justify-center items-start text-center
+    }
+    .card .card-done-btn {
+        @apply p-4 rounded-lg bg-emerald-500 text-slate-100 shadow-md transition-colors hover:bg-emerald-600
+    }
+    .card .card-done-btn.done {
+        @apply bg-emerald-400 hover:bg-emerald-500 text-emerald-800
+    }
+    .card .card-delete-btn {
+        @apply p-4 rounded-lg bg-rose-600 text-slate-100 shadow-md transition-colors hover:bg-rose-700
+    }
+    .add-todo-wrap {
+        @apply fixed z-50 h-screen bg-slate-700 px-6 top-0 -left-[400px] flex flex-col justify-center items-center transition-all duration-500
+    }
+    .add-todo {
+        @apply bg-gray-100 text-gray-800 shadow-xl rounded-2xl p-6 flex flex-col gap-4 
+    }
+    .add-todo-wrap.show {
+        @apply left-0
+    }
+    .add-todo h2 {
+        @apply font-bold text-xl text-center
+    }
+    .add-todo input, .add-todo textarea {
+        @apply p-3 rounded-lg font-medium resize-none outline outline-2 outline-gray-300 focus:outline-gray-400 transition 
+    }
+    .add-todo button {
+        @apply bg-slate-600 text-gray-100 p-3 font-bold rounded-lg hover:bg-slate-700 active:bg-slate-800 transition-colors
+    }
 }
